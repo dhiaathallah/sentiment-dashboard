@@ -73,6 +73,64 @@ if st.button("🔍 Analisis") and texts:
     st.subheader("📈 Distribusi Sentimen")
     counts = result_df["Sentimen"].value_counts()
     colors = {
+    "Positif": "#80e681",
+    "Netral": "#eace71",
+    "Negatif": "#b65c52"
+    }
+
+    pie_colors = [colors[label] for label in counts.index]
+
+    fig, ax = plt.subplots()
+    ax.pie(
+        counts,
+        labels=[f"{l} ({counts[l]})" for l in counts.index],
+        autopct="%1.1f%%",
+        startangle=90,
+        colors=pie_colors
+    )
+    ax.axis("equal")
+    st.pyplot(fig)
+
+    # Wordcloud
+    st.subheader("☁️ Wordcloud per Kelas")
+    color_map = {
+    "Positif": "#80e681",
+    "Netral": "#eace71",
+    "Negatif": "#b65c52"
+    }
+
+    for label in counts.index:
+        # Ambil semua ulasan sesuai kelas
+        texts_label = result_df[result_df["Sentimen"] == label]["Ulasan"].tolist()
+
+        # Kalau kosong, skip
+        if len(texts_label) == 0:
+            st.markdown(f"### {label}")
+            st.write("Tidak ada data untuk kelas ini.")
+            continue
+
+        # Gabungkan teks
+        text = " ".join(texts_label)
+
+        # Kalau teks terlalu pendek, kasih fallback
+        if len(text.strip()) < 5:
+            st.markdown(f"### {label}")
+            st.write("Teks terlalu sedikit untuk membuat wordcloud.")
+            continue
+
+        wc = WordCloud(
+            width=800,
+            height=400,
+            background_color="white",
+            colormap=color_map[label]
+        ).generate(text)
+
+        st.markdown(f"### {label}")
+        st.image(wc.to_array())
+    # Pie chart
+    st.subheader("📈 Distribusi Sentimen")
+    counts = result_df["Sentimen"].value_counts()
+    colors = {
     "Positif": "#2ecc71",
     "Netral": "#f1c40f",
     "Negatif": "#e74c3c"
@@ -109,4 +167,5 @@ if st.button("🔍 Analisis") and texts:
         )
 
         st.markdown(f"### {label}")
+
         st.image(wc.to_array())
