@@ -1,5 +1,5 @@
 # 📊 *Dashboard* Analisis Sentimen Ulasan Aplikasi BYOND by BSI
-Dashboard ini merupakan aplikasi berbasis Streamlit yang digunakan untuk melakukan analisis sentimen ulasan pengguna aplikasi BYOND by BSI menggunakan pendekatan Natural Language Processing (NLP) dengan model IndoBERT. Aplikasi ini dirancang agar mudah digunakan oleh pengguna non-teknis sekalipun.
+Dashboard ini merupakan aplikasi berbasis **Streamlit** yang digunakan untuk melakukan analisis sentimen ulasan pengguna aplikasi BYOND by BSI menggunakan pendekatan *Natural Language Processing* (NLP) dengan model IndoBERT. Aplikasi ini dirancang agar mudah digunakan oleh pengguna non-teknis sekalipun. Berikut adalah penjelasan 
 
 ---
 
@@ -7,7 +7,7 @@ Dashboard ini merupakan aplikasi berbasis Streamlit yang digunakan untuk melakuk
 - *Upload* data ulasan dalam format CSV atau Excel (.xlsx)
 - Analisis sentimen otomatis menggunakan model IndoBERT
 - Klasifikasi sentimen (Positif / Netral / Negatif)
-- Visualisasi hasil analisis (grafik dan wordcloud)
+- Visualisasi hasil analisis (grafik dan *wordcloud*)
 - Tampilan *dashboard* interaktif
 
 ---
