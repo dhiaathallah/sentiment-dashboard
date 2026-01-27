@@ -1,33 +1,33 @@
+import os
 import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-from huggingface_hub import hf_hub_download
+import gdown
+from transformers import BertTokenizer, BertForSequenceClassification
 
 LABELS = {0: "Negatif", 1: "Netral", 2: "Positif"}
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# BASE MODEL (ARSITEKTUR)
-BASE_MODEL = "indobenchmark/indobert-base-p1"
+# ===== 1) DOWNLOAD MODEL DARI GOOGLE DRIVE =====
+MODEL_PATH = "best_indobert_model.pth"
+DRIVE_ID = "1vvsdd0JC3CDSiOCsjWY-7XrXSuqMujpT"
 
-# FILE MODEL KAMU DI HUGGINGFACE
-REPO_ID = "dheaathallah/indobert_byond"
-FILENAME = "best_indobert_model.pth"
+if not os.path.exists(MODEL_PATH):
+    url = f"https://drive.google.com/uc?id={DRIVE_ID}"
+    gdown.download(url, MODEL_PATH, quiet=False)
 
-# LOAD TOKENIZER & MODEL BASE
-tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
-model = AutoModelForSequenceClassification.from_pretrained(
-    BASE_MODEL,
+# ===== 2) LOAD TOKENIZER & MODEL =====
+tokenizer = BertTokenizer.from_pretrained("indobenchmark/indobert-base-p1")
+
+model = BertForSequenceClassification.from_pretrained(
+    "indobenchmark/indobert-base-p1",
     num_labels=3
 )
 
-# DOWNLOAD & LOAD BOBOT KAMU
-model_path = hf_hub_download(repo_id=REPO_ID, filename=FILENAME)
-state_dict = torch.load(model_path, map_location=device)
-model.load_state_dict(state_dict)
-
+model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
 model.to(device)
 model.eval()
 
+# ===== 3) FUNCTION PREDIKSI =====
 def predict_sentiment(texts):
     inputs = tokenizer(
         texts,
