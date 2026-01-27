@@ -30,10 +30,10 @@ Berikut adalah *library* utama yang digunakan dalam pengembangan *dashboard* ini
 - Akses tautan berikut untuk membuka *dashboard*:
   [Dashboard Analisis Sentimen](https://sentiment-dashboard-byond.streamlit.app/)
 - Pilih metode *input* data
-- Jika memilih "*Upload file*", unggah data ulasan dalam bentuk `.csv` atau `.xlsx`
 - Jika memilih "Ketik manual", ketikkan ulasan yang ingin dilakukan analisis
+- Jika memilih "*Upload file*", unggah data ulasan dalam bentuk `.csv` atau `.xlsx`. Lalu pilih kolom yang berisikan ulasan pada data
 - Klik tombol "🔍 Analisis" untuk memproses
-- Setelah proses selesai, *dashboard* akan menampilkan: tabel hasil klasifikasi, grafik distribusi, dan *wordcloud* kata yang sering muncul
+- Setelah proses selesai, *dashboard* akan menampilkan: tabel hasil klasifikasi, grafik distribusi, dan *wordcloud* dari kata yang sering muncul pada setiap kelas
 ---
 ### 📄 Penutup
 *Dashboard* ini dikembangkan sebagai bagian dari tugas akhir/skripsi dengan tujuan mempermudah proses analisis sentimen ulasan pengguna aplikasi BYOND by BSI secara visual, interaktif, dan mudah digunakan.
