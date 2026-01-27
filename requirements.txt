@@ -6,4 +6,4 @@ numpy
 matplotlib
 wordcloud
 openpyxl
-huggingface_hub
+gdown
