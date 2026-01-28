@@ -29,6 +29,7 @@ Berikut adalah *library* utama yang digunakan dalam pengembangan *dashboard* ini
 ### 🌐 Panduan Penggunaan *Dashboard*
 - Akses tautan berikut untuk membuka *dashboard*:
   [Dashboard Analisis Sentimen BYOND by BSI](https://sentiment-byond.streamlit.app/)
+- Jika muncul kalimat “*This app has gone to sleep due to inactivity. Would you like to wake it back up?*”, klik tombol “*Wake it back up*” untuk membuka *dashboard*
 - Pilih metode *input* data
 - Jika memilih "Ketik manual", ketikkan ulasan yang ingin dilakukan analisis
 - Jika memilih "*Upload file*", unggah data ulasan dalam bentuk `.csv` atau `.xlsx`. Lalu pilih kolom yang berisikan ulasan pada data
