@@ -26,7 +26,7 @@ Berikut adalah *library* utama yang digunakan dalam pengembangan *dashboard* ini
 | openpyxl | Membaca *file* Excel (.xlsx) |
 
 ---
-### 🌐 Panduan Penggunaan Dashboard
+### 🌐 Panduan Penggunaan *Dashboard*
 - Akses tautan berikut untuk membuka *dashboard*:
   [Dashboard Analisis Sentimen BYOND by BSI](https://sentiment-dashboard-byond.streamlit.app/)
 - Pilih metode *input* data
