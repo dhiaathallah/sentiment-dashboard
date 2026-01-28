@@ -40,4 +40,4 @@ Berikut adalah *library* utama yang digunakan dalam pengembangan *dashboard* ini
 
 📬 Jika terdapat pertanyaan atau kendala dalam penggunaan aplikasi, silakan hubungi pengembang pada kontak berikut ini:
 - E-mail: dheaathallah@gmail.com
-- WhatsApp: 081946853046
+- WhatsApp: [081946853046](wa.me/6281946853046)
