@@ -28,7 +28,7 @@ Berikut adalah *library* utama yang digunakan dalam pengembangan *dashboard* ini
 ---
 ### 🌐 Panduan Penggunaan Dashboard
 - Akses tautan berikut untuk membuka *dashboard*:
-  [Dashboard Analisis Sentimen BYOND by BSI]([https://sentiment-dashboard-byond.streamlit.app/])
+  [Dashboard Analisis Sentimen BYOND by BSI](https://sentiment-dashboard-byond.streamlit.app/)
 - Pilih metode *input* data
 - Jika memilih "Ketik manual", ketikkan ulasan yang ingin dilakukan analisis
 - Jika memilih "*Upload file*", unggah data ulasan dalam bentuk `.csv` atau `.xlsx`. Lalu pilih kolom yang berisikan ulasan pada data
@@ -40,4 +40,4 @@ Berikut adalah *library* utama yang digunakan dalam pengembangan *dashboard* ini
 
 📬 Jika terdapat pertanyaan atau kendala dalam penggunaan aplikasi, silakan hubungi pengembang pada kontak berikut ini:
 - E-mail: dheaathallah@gmail.com
-- WhatsApp: [081946853046]([wa.me/6281946853046])
+- WhatsApp: [081946853046](http://wa.me/6281946853046)
