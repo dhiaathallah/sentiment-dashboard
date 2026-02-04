@@ -23,7 +23,7 @@ if option == "Upload Data (CSV / XLSX)":
     if file:
         if file.name.endwith(".csv"):
             df = pd.read_csv(file)
-        else
+        else:
         df = pd.read_excel(file)
 
         text_column = st.selectboc("Pilih kolom ulasan", df.columns)
@@ -152,4 +152,5 @@ if st.button("🔍 Analisis") and texts:
 
         st.markdown(f"### {label}")
         st.image(wc.to_array())
+
 
