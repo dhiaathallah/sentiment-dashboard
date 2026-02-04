@@ -17,7 +17,6 @@ option = st.radio(
 texts = []
 
 if option == "Upload Data (CSV / XLSX)":
-    st.caption("📂 Unggah file berisi kolom ulasan")
     file = st.file_uploader("Upload file", type=["csv","xlsx"])
     if file:
         if file.name.endswith(".csv"):
@@ -29,8 +28,7 @@ if option == "Upload Data (CSV / XLSX)":
         texts = df[text_column].astype(str).tolist()
     
 else:
-    st.caption("✍️ Masukkan ulasan secara manual")
-    user_text = st.text_area("Masukkan ulasan:")
+    user_text = st.text_area("Masukkan ulasan ✍️:")
     if user_text:
         texts = [user_text]
 
@@ -128,6 +126,7 @@ if st.button("🔍 Analisis") and texts:
 
         st.markdown(f"### {label}")
         st.image(wc.to_array())
+
 
 
 
