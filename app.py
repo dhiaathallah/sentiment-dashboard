@@ -26,7 +26,7 @@ if option == "Upload Data (CSV / XLSX)":
         else:
             df = pd.read_excel(file)
 
-        text_column = st.selectboc("Pilih kolom ulasan", df.columns)
+        text_column = st.selectbox("Pilih kolom ulasan", df.columns)
         texts = df[text_column].astype(str).tolist()
     
 elif option == "Ketik Manual":
@@ -152,6 +152,7 @@ if st.button("🔍 Analisis") and texts:
 
         st.markdown(f"### {label}")
         st.image(wc.to_array())
+
 
 
 
