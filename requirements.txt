@@ -7,4 +7,3 @@ matplotlib
 wordcloud
 openpyxl
 gdown
-google-play-scraper
