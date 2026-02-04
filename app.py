@@ -44,7 +44,7 @@ else:  # Scraping Google Play
     if st.button("🔄 Ambil Review"):
         with st.spinner("Mengambil data dari Google Play..."):
             df_scrape = scrape_reviews(
-                app_id="id.co.bankbsi.superapp",  # BSI Beyond
+                app_id="co.id.bankbsi.superapp",  # BSI Beyond
                 start_date=start_date,
                 end_date=end_date,
                 max_reviews=max_reviews
@@ -152,6 +152,7 @@ if st.button("🔍 Analisis") and texts:
 
         st.markdown(f"### {label}")
         st.image(wc.to_array())
+
 
 
 
