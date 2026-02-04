@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-from utils.scraper import scrape_reviews
-from datetime import date
 from utils.preprocessing import preprocess
 from utils.predict import predict_sentiment
 
@@ -13,12 +11,13 @@ st.title("📊 Dashboard Analisis Sentimen")
 
 option = st.radio(
     "Pilih metode input:",
-    ("Upload Data (CSV / XLSX)", "Ketik Manual", "Scraping Google Play")
+    ("Upload Data (CSV / XLSX)", "Ketik Manual")
 )
 
 texts = []
 
 if option == "Upload Data (CSV / XLSX)":
+    st.caption("📂 Unggah file berisi kolom ulasan")
     file = st.file_uploader("Upload file", type=["csv","xlsx"])
     if file:
         if file.name.endswith(".csv"):
@@ -29,37 +28,14 @@ if option == "Upload Data (CSV / XLSX)":
         text_column = st.selectbox("Pilih kolom ulasan", df.columns)
         texts = df[text_column].astype(str).tolist()
     
-elif option == "Ketik Manual":
+else:
+    st.caption("✍️ Masukkan ulasan secara manual")
     user_text = st.text_area("Masukkan ulasan:")
     if user_text:
         texts = [user_text]
 
-else:  # Scraping Google Play
-    st.subheader("📥 Scraping Review Google Play")
-
-    start_date = st.date_input("Tanggal awal", date.today())
-    end_date = st.date_input("Tanggal akhir", date.today())
-    max_reviews = st.number_input("Jumlah maksimum review", 100, 5000, 1000)
-
-    if st.button("🔄 Ambil Review"):
-        with st.spinner("Mengambil data dari Google Play..."):
-            df_scrape = scrape_reviews(
-                app_id='co.id.bankbsi.superapp',  # BSI Beyond
-                start_date=start_date,
-                end_date=end_date,
-                max_reviews=max_reviews
-            )
-
-        if df_scrape.empty:
-            st.warning("Tidak ada review pada rentang tanggal tersebut.")
-        else:
-            st.success(f"Berhasil mengambil {len(df_scrape)} review")
-            st.dataframe(df_scrape.head())
-
-            texts = df_scrape["Ulasan"].astype(str).tolist()
-
 if st.button("🔍 Analisis") and texts:
-    with st.spinner("Sedang memproses..."):
+    with st.spinner("Sedang memproses ulasan..."):
         processed = [preprocess(t) for t in texts]
         labels = predict_sentiment(processed)
 
@@ -152,6 +128,7 @@ if st.button("🔍 Analisis") and texts:
 
         st.markdown(f"### {label}")
         st.image(wc.to_array())
+
 
 
 
