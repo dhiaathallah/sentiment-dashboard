@@ -21,7 +21,7 @@ texts = []
 if option == "Upload Data (CSV / XLSX)":
     file = st.file_uploader("Upload file", type=["csv","xlsx"])
     if file:
-        if file.name.endwith(".csv"):
+        if file.name.endswith(".csv"):
             df = pd.read_csv(file)
         else:
             df = pd.read_excel(file)
@@ -37,7 +37,7 @@ elif option == "Ketik Manual":
 else:  # Scraping Google Play
     st.subheader("📥 Scraping Review Google Play")
 
-    start_date = st.date_input("Tanggal awal", date(2024, 1, 1))
+    start_date = st.date_input("Tanggal awal", date.today())
     end_date = st.date_input("Tanggal akhir", date.today())
     max_reviews = st.number_input("Jumlah maksimum review", 100, 5000, 1000)
 
@@ -152,6 +152,7 @@ if st.button("🔍 Analisis") and texts:
 
         st.markdown(f"### {label}")
         st.image(wc.to_array())
+
 
 
 
